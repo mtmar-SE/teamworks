@@ -1,5 +1,4 @@
 import React from "react";
-
 import Form from "./Form";
 import CheckAll from "./CheckAll";
 import Filter from "./Filter";
@@ -14,7 +13,7 @@ class Todo extends React.Component {
 
     this.state = {
       filter: "all",
-      todos: []
+      todos: [],
     };
   }
 
@@ -60,15 +59,15 @@ class Todo extends React.Component {
                   onSubmit={this.handleUpdateTodoText}
                 />
               ) : (
-                  <List
-                    id={id}
-                    text={text}
-                    completed={completed}
-                    onChange={this.handleChangeTodoAttribute}
-                    onEdit={this.handleChangeTodoAttribute}
-                    onDelete={this.handleClickDelete}
-                  />
-                )}
+                <List
+                  id={id}
+                  text={text}
+                  completed={completed}
+                  onChange={this.handleChangeTodoAttribute}
+                  onEdit={this.handleChangeTodoAttribute}
+                  onDelete={this.handleClickDelete}
+                />
+              )}
             </li>
           ))}
         </ul>
@@ -80,12 +79,12 @@ class Todo extends React.Component {
     );
   }
 
-  handleSubmit = text => {
+  handleSubmit = (text) => {
     const newTodo = {
       id: currentId,
       text,
       completed: false,
-      editing: false
+      editing: false,
     };
     const newTodos = [...this.state.todos, newTodo];
     this.setState({ todos: newTodos });
@@ -93,12 +92,12 @@ class Todo extends React.Component {
   };
 
   handleUpdateTodoText = (id, text) => {
-    const newTodos = this.state.todos.map(todo => {
+    const newTodos = this.state.todos.map((todo) => {
       if (todo.id === id) {
         return {
           ...todo,
           text,
-          editing: false
+          editing: false,
         };
       }
 
@@ -108,27 +107,27 @@ class Todo extends React.Component {
     this.setState({ todos: newTodos });
   };
 
-  handleChangeAllCompleted = completed => {
-    const newTodos = this.state.todos.map(todo => {
+  handleChangeAllCompleted = (completed) => {
+    const newTodos = this.state.todos.map((todo) => {
       return {
         ...todo,
-        completed
+        completed,
       };
     });
 
     this.setState({ todos: newTodos });
   };
 
-  handleChangeFilter = filter => {
+  handleChangeFilter = (filter) => {
     this.setState({ filter });
   };
 
   handleChangeTodoAttribute = (id, key, value) => {
-    const newTodos = this.state.todos.map(todo => {
+    const newTodos = this.state.todos.map((todo) => {
       if (todo.id === id) {
         return {
           ...todo,
-          [key]: value
+          [key]: value,
         };
       }
 
@@ -138,8 +137,8 @@ class Todo extends React.Component {
     this.setState({ todos: newTodos });
   };
 
-  handleClickDelete = id => {
-    const newTodos = this.state.todos.filter(todo => todo.id !== id);
+  handleClickDelete = (id) => {
+    const newTodos = this.state.todos.filter((todo) => todo.id !== id);
     this.setState({ todos: newTodos });
   };
 
