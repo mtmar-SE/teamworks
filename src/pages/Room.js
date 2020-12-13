@@ -12,7 +12,7 @@ const Room = () => {
 
   return (
     <>
-      <h1>Room</h1>
+      <h1>チャット</h1>
       <List />
       <Form />
       <Button onClick={signout} variant="contained">
