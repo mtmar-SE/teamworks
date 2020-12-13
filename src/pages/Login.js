@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     auth
       .signInWithEmailAndPassword(email, password)
-      .then((response) => {
+      .then(() => {
         history.push("/");
       })
       .catch((error) => {

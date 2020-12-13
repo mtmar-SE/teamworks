@@ -8,7 +8,7 @@ import Header from "./Header";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Room from "../pages/Room";
-
+import Chatapp from "../components/Chatapp";
 import LoggedInRoute from "./chattools/LoggedInLoute";
 
 const App = () => {
@@ -20,10 +20,15 @@ const App = () => {
             <LoggedInRoute path="/" exact component={Header} />
             <Route path="/login" exact component={Login} />
             <Route path="/signup" exact component={Signup} />
-            <Route path="/header" exact component={Room} />
-            <Route path="/graduate/recommend" exact component={Recommend} />
-            <Route path="/graduate/todo" exact component={Todo} />
-            <Route path="/graduate/profile" exact component={Profile} />
+            <LoggedInRoute path="/graduate/room" exact component={Room} />
+            <LoggedInRoute path="/graduate/chatapp" exact component={Chatapp} />
+            <LoggedInRoute
+              path="/graduate/recommend"
+              exact
+              component={Recommend}
+            />
+            <LoggedInRoute path="/graduate/todo" exact component={Todo} />
+            <LoggedInRoute path="/graduate/profile" exact component={Profile} />
           </Switch>
         </BrowserRouter>
       </AuthProvider>

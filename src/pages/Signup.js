@@ -9,7 +9,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventdefault();
+    e.preventDefault();
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
